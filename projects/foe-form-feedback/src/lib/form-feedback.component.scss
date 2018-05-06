@@ -1,0 +1,11 @@
+:host {
+    display: block;
+    padding: 5px 7px;
+
+    border: 1px solid transparent;
+
+    &.form-feedback-invalid {
+        border: 1px solid red;
+        border-radius: 5px;
+    }
+}

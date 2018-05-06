@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "app",
+      "prefix": "foe",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss",
@@ -133,6 +133,46 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "foe-form-feedback": {
+      "root": "projects/foe-form-feedback",
+      "sourceRoot": "projects/foe-form-feedback/src",
+      "projectType": "library",
+      "prefix": "foe",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/foe-form-feedback/tsconfig.lib.json",
+            "project": "projects/foe-form-feedback/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/foe-form-feedback/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/foe-form-feedback/src/test.ts",
+            "tsConfig": "projects/foe-form-feedback/tsconfig.spec.json",
+            "karmaConfig": "projects/foe-form-feedback/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/foe-form-feedback/tsconfig.lib.json",
+              "projects/foe-form-feedback/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
