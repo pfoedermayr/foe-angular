@@ -4,6 +4,7 @@ import { ANALYZE_FOR_ENTRY_COMPONENTS, ModuleWithProviders, NgModule, Type } fro
 import { FormFeedbackComponent } from './form-feedback.component';
 import { FormFeedbackDirective } from './form-feedback.directive';
 import { FormFeedback } from './form-feedback.interface';
+import { MessageService } from './message.service';
 import { TOKEN } from './token';
 
 @NgModule({
@@ -21,6 +22,15 @@ export class FormFeedbackModule {
       providers: [
         { provide: ANALYZE_FOR_ENTRY_COMPONENTS, useValue: component, multi: true },
         { provide: TOKEN, useValue: component }
+      ]
+    };
+  }
+
+  static withCustomMessageService(service: Type<MessageService>): ModuleWithProviders {
+    return {
+      ngModule: FormFeedbackModule,
+      providers: [
+        { provide: MessageService, useClass: service, multi: true }
       ]
     };
   }

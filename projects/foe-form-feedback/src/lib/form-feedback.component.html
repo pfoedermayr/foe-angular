@@ -1,1 +1,3 @@
-{{ errors | json }}
+<div *ngFor="let error of errors | async">
+    {{ error }}
+</div>
