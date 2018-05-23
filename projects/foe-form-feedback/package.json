@@ -1,6 +1,16 @@
 {
   "name": "foe-form-feedback",
-  "version": "0.0.1",
+  "description": "A simple but customizable form-feedback library",
+  "version": "1.0.0-rc.1",
+  "license": "MIT",
+  "homepage": "https://github.com/pfoedermayr/foe-angular",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pfoedermayr/foe-angular.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pfoedermayr/foe-angular/issues"
+  },
   "peerDependencies": {
     "@angular/common": "^6.0.0",
     "@angular/core": "^6.0.0",
