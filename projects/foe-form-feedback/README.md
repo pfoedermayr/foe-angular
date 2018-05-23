@@ -2,7 +2,7 @@
 
 A simple but customizable form-feedback library.
 
-<!-- TODO Demo can be found here: LINK-->
+Demo can be found [here](https://stackblitz.com/edit/simple-form-feedback?file=src%2Fapp%2Fapp.component.html).
 <!-- TODO Changelog can be found here: LINK-->
 
 ## Table of Contents
@@ -47,7 +47,7 @@ Apply the `foeFormFeedback` directive to your `form`.
 
 ## Customization
 
-### Providing custom messages <!-- TODO stackblitz-demo -->
+### Providing custom messages ([Demo](https://stackblitz.com/edit/custom-service-form-feedback))
 
 1. Create a `service` which implements `ErrorMessageService`.
 ```ts
@@ -79,10 +79,13 @@ import { MyMessageService } from './my-message.service';
 export class MyModule { }
 ```
 
-### Use a custom component <!-- TODO stackblitz-demo -->
+### Use a custom component ([Demo](https://stackblitz.com/edit/custom-component-form-feedback))
 
 1. Create a `component` which implements `FormFeedback`
 ```ts
+import { Component } from '@angular/core';
+import { FormFeedback } from 'foe-form-feedback';
+
 @Component({
     templateUrl: 'my-feedback.component.html',
     styleUrls: ['my-feedback.component.scss']
