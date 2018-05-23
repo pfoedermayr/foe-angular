@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ANALYZE_FOR_ENTRY_COMPONENTS, ModuleWithProviders, NgModule, Type } from '@angular/core';
 
+import { ErrorMessageService } from './error-message-service.interface';
 import { FormFeedbackComponent } from './form-feedback.component';
 import { FormFeedbackDirective } from './form-feedback.directive';
 import { FormFeedback } from './form-feedback.interface';
@@ -26,11 +27,11 @@ export class FormFeedbackModule {
     };
   }
 
-  static withCustomMessageService(service: Type<MessageService>): ModuleWithProviders {
+  static withCustomMessageService(service: Type<ErrorMessageService>): ModuleWithProviders {
     return {
       ngModule: FormFeedbackModule,
       providers: [
-        { provide: MessageService, useClass: service, multi: true }
+        { provide: MessageService, useClass: service }
       ]
     };
   }
