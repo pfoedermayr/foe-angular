@@ -18,7 +18,7 @@ import { FormFeedback } from './form-feedback.interface';
 import { TOKEN } from './token';
 
 @Directive({
-  selector: '[ngModel][foeFormFeedback],[ngModel][formControl],[ngModel][formControlName]'
+  selector: '[ngModel][foeFormFeedback],[formControl][foeFormFeedback],[formControlName][foeFormFeedback]'
 })
 export class FormFeedbackDirective implements OnInit, OnDestroy {
   private control: AbstractControl;
