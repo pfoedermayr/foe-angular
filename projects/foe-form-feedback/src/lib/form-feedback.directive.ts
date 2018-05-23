@@ -21,23 +21,22 @@ import { TOKEN } from './token';
   selector: '[ngModel][foeFormFeedback],[formControl][foeFormFeedback],[formControlName][foeFormFeedback]'
 })
 export class FormFeedbackDirective implements OnInit, OnDestroy {
-  private control: AbstractControl;
   private ref: ComponentRef<FormFeedback>;
   private statusChangesSubscription: Subscription;
 
   constructor(
-    @Self() formItem: NgControl,
+    @Self() private formItem: NgControl,
     @Optional() @Inject(TOKEN) private customComponent: Type<FormFeedback>,
     private vcr: ViewContainerRef,
     private cfr: ComponentFactoryResolver
   ) {
-    if (formItem.control == null) {
-      return;
-    }
-    this.control = formItem.control;
   }
 
   ngOnInit() {
+    if (this.formItem.control == null) {
+      return;
+    }
+
     let factory;
     if (this.customComponent == null) {
       factory = this.cfr.resolveComponentFactory(FormFeedbackComponent);
@@ -46,9 +45,9 @@ export class FormFeedbackDirective implements OnInit, OnDestroy {
     }
     this.ref = this.vcr.createComponent(factory);
 
-    this.statusChangesSubscription = this.control.statusChanges.subscribe(
+    this.statusChangesSubscription = this.formItem.control.statusChanges.subscribe(
       status => {
-        this.ref.instance.updateStatus(status, this.control.errors);
+        this.ref.instance.updateStatus(status, this.formItem.control!.errors);
       }
     );
   }
