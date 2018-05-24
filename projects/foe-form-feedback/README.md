@@ -3,7 +3,8 @@
 A simple but customizable form-feedback library.
 
 Demo can be found [here](https://stackblitz.com/edit/simple-form-feedback?file=src%2Fapp%2Fapp.component.html).
-<!-- TODO Changelog can be found here: LINK-->
+
+Changelog can be found [here](https://github.com/pfoedermayr/foe-angular/blob/master/projects/foe-form-feedback/CHANGELOG.md).
 
 ## Table of Contents
 * [Installation](#installation)
