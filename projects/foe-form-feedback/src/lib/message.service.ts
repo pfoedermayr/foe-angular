@@ -11,12 +11,12 @@ export class MessageService implements ErrorMessageService {
 
   get(errors: ValidationErrors): Observable<string[]> {
     return of(
-      Object.keys(errors!).map(
-        error => this.getError(error, errors![error])
+      Object.keys(errors).map(
+        error => this.getError(error, errors[error])
       )
     );
   }
-  
+
   private getError(error: string, data: any): string {
     switch (error) {
       case 'min':

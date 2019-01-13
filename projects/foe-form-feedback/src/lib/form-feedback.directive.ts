@@ -47,7 +47,9 @@ export class FormFeedbackDirective implements OnInit, OnDestroy {
 
     this.statusChangesSubscription = this.formItem.control.statusChanges.subscribe(
       status => {
-        this.ref.instance.updateStatus(status, this.formItem.control!.errors);
+        if (this.formItem.control != null) {
+          this.ref.instance.updateStatus(status, this.formItem.control.errors);
+        }
       }
     );
   }

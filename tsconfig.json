@@ -22,6 +22,9 @@
       "foe-form-feedback": [
         "dist/foe-form-feedback"
       ]
-    }
+    },
+    "plugins": [
+      {"name": "tslint-language-service" }
+    ]
   }
 }

@@ -25,8 +25,8 @@ export class FormFeedbackComponent implements FormFeedback {
   updateStatus(status: string, errors: ValidationErrors | null) {
     this.invalid = status === 'INVALID';
 
-    if (this.invalid) {
-      this.errors = this.message.get(errors!);
+    if (this.invalid && errors != null) {
+      this.errors = this.message.get(errors);
     } else {
       this.errors = undefined;
     }
